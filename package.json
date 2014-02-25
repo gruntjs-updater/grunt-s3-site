@@ -1,0 +1,39 @@
+{
+  "name": "grunt-s3-site",
+  "description": "Create, manipulate, and deploy static websites to Amazon S3",
+  "version": "0.0.1",
+  "homepage": "https://github.com/firstopinion/grunt-s3-site",
+  "author": {
+    "name": "Jarid Margolin",
+    "email": "jarid@firstopinion.co"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/firstopinion/grunt-s3-site.git"
+  },
+  "bugs": {
+    "url": "https://github.com/firstopinion/grunt-s3-site/issues"
+  },
+  "engines": {
+    "node": ">= 0.10.24"
+  },
+  "dependencies": {
+    "s3-site": "~0.0.3"
+  },
+  "devDependencies": {
+    "grunt-contrib-jshint": "~0.6.0",
+    "grunt-contrib-clean": "~0.4.0",
+    "grunt-contrib-nodeunit": "~0.2.0",
+    "grunt": "~0.4.2"
+  },
+  "peerDependencies": {
+    "grunt": "~0.4.2"
+  },
+  "keywords": [
+    "gruntplugin",
+    "aws",
+    "s3",
+    "static site",
+    "deploy"
+  ]
+}
