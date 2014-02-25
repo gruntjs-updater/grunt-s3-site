@@ -21,7 +21,7 @@ grunt.loadNpmTasks('grunt-s3-site');
 ```
 
 
-## The "s3_site" task
+## The "s3site" task
 
 ### Overview
 
@@ -33,33 +33,64 @@ grunt.initConfig({
     options: {
       // Task-specific options go here.
     },
-    your_target: {
-      // Target-specific file lists and/or options go here.
-    },
-  },
+    target: {
+      // Target-specific options go here.
+    }
+  }
 });
 ```
 
 ### Options
 
-#### options.separator
-Type: `String`
-Default value: `',  '`
+#### options.name (required)
+The name of your project. This will be used in the bucket name.
 
-A string value that is used to do something with whatever.
+Type: `String`
+
+#### options.env
+The environment you would like to push to. This is added as a prefix to the bucket name.
+
+Type: `String`
+
+Default: `''`
+
+#### options.prefix
+A prefix to be used on the bucket name. Helpful for creating unique bucket names.
+
+Type: `String`
+
+default: `''`
+
+#### options.region
+The S3 region you would like to deploy to.
+
+Type: `String`
+
+default: `us-east-1`
+
+#### options.src
+The source directory of the files you would like to push. Paths are relative to your `Gruntfile`.
+
+Type: `String`
+
+default: `us-east-1`
+
 
 ### Usage Examples
 
-In this example, the default options are used to do something with whatever. So if the `testing` file has the content `Testing` and the `123` file had the content `1 2 3`, the generated result would be `Testing, 1 2 3.`
+In this example, the `dev` target will upload files to a bucket named, `company-dev-my-awesome-static-site`, in the `us-east-1` region.
 
 ```
 grunt.initConfig({
-  s3_site: {
-    options: {},
-    files: {
-      'dest/default_options': ['src/testing', 'src/123'],
+  s3site: {
+    options: {
+      name: 'my-awesome-static-site',
+      prefix: 'company'
     },
-  },
+    dev: {
+      options: { env: 'dev' }
+    }
+  }
 });
 ```
 
