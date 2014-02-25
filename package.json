@@ -1,7 +1,7 @@
 {
   "name": "grunt-s3-site",
   "description": "Create, manipulate, and deploy static websites to Amazon S3",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "homepage": "https://github.com/firstopinion/grunt-s3-site",
   "author": {
     "name": "Jarid Margolin",
@@ -18,7 +18,7 @@
     "node": ">= 0.10.24"
   },
   "dependencies": {
-    "s3-site": "~0.0.3"
+    "s3-site": "~0.0.4"
   },
   "devDependencies": {
     "grunt-contrib-jshint": "~0.6.0",
