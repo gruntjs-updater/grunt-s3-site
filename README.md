@@ -42,6 +42,13 @@ grunt.initConfig({
 
 ### Options
 
+#### options.s3Config
+s3 options object. All possible paramaters can be found in the [aws-sdk documentation](http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/S3.html#constructor-property).
+
+Type: `Object`
+
+default: `{}`
+
 #### options.name (required)
 The name of your project. This will be used in the bucket name.
 
@@ -61,17 +68,24 @@ Type: `String`
 
 default: `''`
 
-#### options.region
-The S3 region you would like to deploy to.
+#### options.srcPath
+The source directory of the files you would like to push. Paths are relative to your `Gruntfile`.
 
 Type: `String`
 
 default: `us-east-1`
 
-#### options.src
-The source directory of the files you would like to push. Paths are relative to your `Gruntfile`.
+#### options.noCache
+The following headers will be set on all specified files:
 
-Type: `String`
+```
+CacheControl: 'no-cache, no-store, must-revalidate',
+Expires: (new Date()).toISOString()
+```
+
+Paths are relative to srcPath.
+
+Type: `Array`
 
 default: `us-east-1`
 
@@ -97,7 +111,7 @@ grunt.initConfig({
 
 ## License
 
-The MIT License (MIT) Copyright (c) 2013 First Opinion
+The MIT License (MIT) Copyright (c) 2014 First Opinion
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 

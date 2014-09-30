@@ -49,15 +49,17 @@ module.exports = function(grunt) {
 
     // Mixin with defaults - Maybe later
     var options = this.options({
-      region: 'us-east-1',
-      src: path.resolve('dist')
+      srcPath: path.resolve('dist')
     });
+
+    var s3config = options['s3config'];
+    delete options['s3config'];
 
     // If missing required opts exit
     if (!hasRequiredOpts()) { return false; }
 
     // Deploy site
-    s3site.deploy(options, function (err, data) {
+    s3site.deploy(options, s3config, function (err, data) {
       done(err ? false : true);
     });
   });
